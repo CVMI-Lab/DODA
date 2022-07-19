@@ -1,0 +1,14 @@
+numpy
+torch>=1.5
+easydict
+numpy
+tensorboardX
+plyfile
+SharedArray
+open3d==0.9.0
+matplotlib
+opencv-python
+scipy
+pandas
+tqdm
+pyyaml
