@@ -1,0 +1,44 @@
+COMMON_CLASSES:
+  n_classes: 11
+  class_names: ["wall", "floor", "chair", "sofa", "table", "door", "window", "bookshelf", "ceiling", "beam", "column"]
+
+DATA_CONFIG:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/front3d/front3d_cfg.yaml
+  CLASS_MAPPER_FILE: dataset/class_mapper/3dfront_2_s3dis.json
+  DATA_AUG:
+    vss:
+      value: 8
+
+DATA_CONFIG_TAR:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/s3dis/s3dis_cfg.yaml
+  CLASS_MAPPER_FILE: dataset/class_mapper/s3dis_2_3dfront.json
+
+MODEL:
+  NAME: SparseConvNet
+  BACKBONE:
+    use_xyz: False
+    in_channel: 3
+    mid_channel: 16 # or 32
+    block_residual: True
+    block_reps: 2
+  PTS_HEAD:
+    enabled: True
+    name: linear
+  dsnorm: False
+
+OPTIMIZATION:
+  BATCH_SIZE_PER_GPU: 4
+  NUM_EPOCHS: 70
+  base_lr: 0.005
+  lr_decay: step
+  optim: sgd
+  weight_decay: 0.0001
+  momentum: 0.9
+  step_epoch: 70
+  multiplier: 0.5
+  loss: cross_entropy
+  dsnorm: False
+
+EVALUATION:
+  evaluate: True
+  eval_freq: 1

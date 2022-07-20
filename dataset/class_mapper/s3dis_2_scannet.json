@@ -1,0 +1,21 @@
+{"classes": ["wall", "floor", "chair", "sofa", "table", "door", "window", "bookshelf"],
+     "tar": {"0": "wall",
+           "1": "floor",
+           "4": "chair",
+           "5": "sofa",
+           "6": "table",
+           "7": "door",
+           "8": "window",
+           "9": "bookshelf"
+           },
+     "src": {
+            "1": "floor",
+            "2": "wall",
+            "5": "window",
+            "6": "door",
+            "7": "table",
+            "8": "chair",
+            "9": "sofa",
+            "10": "bookshelf"
+            }
+}

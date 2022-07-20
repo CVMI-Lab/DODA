@@ -1,0 +1,26 @@
+{"classes": ["wall", "floor", "chair", "sofa", "table", "door", "window", "bookshelf", "ceiling", "beam", "column"],
+       "tar": {"2": "bookshelf",
+              "4": "table", "11": "table", "22": "table", "23": "table", "24": "table",
+              "17": "chair", "18": "chair", "19": "chair", "20": "chair", "21": "chair",
+              "25": "sofa", "26": "sofa", "27": "sofa", "28": "sofa", "29": "sofa", "30": "sofa",
+              "37": "wall", "50": "wall", "60": "wall", "62": "wall", "63": "wall", "65": "wall", "68": "wall", "70": "wall",
+              "38": "ceiling", "41": "ceiling", "67": "ceiling", "69": "ceiling",
+              "42": "floor",
+              "46": "window", "54": "window",
+              "48": "column",
+              "58": "beam",
+              "56": "door", "64": "door"
+              },
+       "src": {"0": "ceiling",
+              "1": "floor",
+              "2": "wall",
+              "3": "beam",
+              "4": "column",
+              "5": "window",
+              "6": "door",
+              "7": "table",
+              "8": "chair",
+              "9": "sofa",
+              "10": "bookshelf"
+              }
+      }

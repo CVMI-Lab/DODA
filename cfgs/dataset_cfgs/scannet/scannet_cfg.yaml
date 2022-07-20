@@ -1,0 +1,68 @@
+DATA_ROOT: ./data/scannetv2
+DATASET: scannet
+
+rotate_param: [0, 0, 0]
+
+DATA_SPLIT:
+  training: train
+  validation: val
+  test: val
+  data_suffix: .pth
+
+DATA_CLASS:
+  n_classes: 20
+  class_names: [wall, floor, cabinet, bed, chair, sofa, table, door, window, bookshelf, picture, counter, desk,
+                curtain, refridgerator, showercurtain, toilet, sink, bathtub, otherfurniture]
+  ignore_label: 255
+
+DATA_AUG:
+  enabled: True
+  aug_list: [ scene_aug, elastic, crop, shuffle ]
+  scene_aug:
+    rotation:
+      p: 1.0
+      value: [0.0, 0.0, 1.0]
+    jitter: True
+    flip:
+      p: 0.5
+  elastic:
+    enabled: True
+    value: [[6, 40], [20, 160]]
+    apply_to_feat: False
+    p: 1.0
+  shuffle: True
+  vss:
+    enabled: False
+    value: 4
+    mode: fixed  # [fixed, parallel, perspective]
+    p: 1.0
+    radius: 1000
+    camera_view: 180
+    random_jitter:
+      enabled: True
+      value: 0.01
+      p: 1.0
+  tacm:
+    enabled: True
+    split: [2, 2, 1]
+    p: 0.5
+    mix_ratio: 0.5
+    permute_cuboid:
+      enabled: True
+      p: 0.5
+    cuboid_queue:
+      enabled: False
+      size: 256
+      num_cuboid: 2.0  # cuboid for each scene
+      num_class: 2  # number of tail class for sampling
+      update_class_ratio: True
+
+DATA_PROCESSOR:
+  point_range: 200000000
+  voxel_scale: 50  # voxel_size = 1 / scale, scale 50(0.02m)
+  cache: False    # if there is enough shm space, it can set to be true
+  max_npoint: 250000
+  full_scale: [128, 512]
+  voxel_mode: 4
+  downsampling_scale: 1
+  no_downsample_infer: True

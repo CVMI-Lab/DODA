@@ -1,0 +1,44 @@
+COMMON_CLASSES:
+  n_classes: 8
+  class_names: ["wall", "floor", "chair", "sofa", "table", "door", "window", "bookshelf"]
+
+DATA_CONFIG:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/s3dis/s3dis_cfg.yaml
+  CLASS_MAPPER_FILE: dataset/class_mapper/s3dis_2_scannet.json
+
+DATA_CONFIG_TAR:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/scannet/scannet_cfg.yaml
+  CLASS_MAPPER_FILE: dataset/class_mapper/scannet_2_s3dis.json
+  DATA_SPLIT:
+    training: train_group
+    validation: val_group
+    test: val_group
+
+MODEL:
+  NAME: SparseConvNet
+  BACKBONE:
+    use_xyz: False
+    in_channel: 3
+    mid_channel: 16 # or 32
+    block_residual: True
+    block_reps: 2
+  PTS_HEAD:
+    enabled: True
+    name: linear
+
+OPTIMIZATION:
+  BATCH_SIZE_PER_GPU: 4
+  NUM_EPOCHS: 550
+  base_lr: 0.005
+  lr_decay: step
+  optim: sgd
+  weight_decay: 0.0001
+  momentum: 0.9
+  step_epoch: 550
+  multiplier: 0.5
+  loss: cross_entropy
+  dsnorm: False
+
+EVALUATION:
+  evaluate: True
+  eval_freq: 5

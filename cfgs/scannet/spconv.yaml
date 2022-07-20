@@ -1,0 +1,40 @@
+COMMON_CLASSES:
+  n_classes: 20
+  class_names: [wall, floor, cabinet, bed, chair,
+                sofa, table, door, window, bookshelf, 
+                picture, counter, desk, curtain, refridgerator,
+                showercurtain, toilet, sink, bathtub, otherfurniture]
+
+DATA_CONFIG:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/scannet/scannet_cfg.yaml
+
+DATA_CONFIG_TAR:
+  _BASE_CONFIG_: cfgs/dataset_cfgs/scannet/scannet_cfg.yaml
+
+MODEL:
+  NAME: SparseConvNet
+  BACKBONE:
+    use_xyz: False
+    in_channel: 3
+    mid_channel: 16 # or 32
+    block_residual: True
+    block_reps: 2
+  PTS_HEAD:
+    enabled: True
+    name: linear
+
+OPTIMIZATION:
+  BATCH_SIZE_PER_GPU: 4
+  NUM_EPOCHS: 384
+  base_lr: 0.01
+  lr_decay: step
+  weight_decay: 0.0001
+  momentum: 0.9
+  step_epoch: 384
+  multiplier: 0.5
+  loss: cross_entropy
+  dsnorm: False
+
+EVALUATION:
+  evaluate: True
+  eval_freq: 10

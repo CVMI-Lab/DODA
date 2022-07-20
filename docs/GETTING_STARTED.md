@@ -3,13 +3,12 @@ The dataset configs are located within [cfgs/dataset_configs](cfgs/dataset_confi
 
 ### Dataset Preparation
 #### 3D-FRONT Dataset
-- Please download the subsampled and pre-processed [3D-FRONT dataset]() and organize it as follows.
+- Please download the subsampled and pre-processed [3D-FRONT dataset](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3007346_connect_hku_hk/ETXTrSJmy8lLikn0I_zsOisB5utQnffuqp3dGYwv-IIzDw?e=tpHJqc) and organize it as follows.
     ```
     DODA
     ├── data
     │   ├── 3dfront
     │   │   │── density1250
-    │   │   │── 3dfront_util.py
     │   │   │── train_list.txt
     │   │   │── val_list.txt
     ├── cfgs
@@ -32,7 +31,7 @@ The dataset configs are located within [cfgs/dataset_configs](cfgs/dataset_confi
     ```
 
 #### S3DIS Dataset
-- Please download the [S3DIS Dataset](http://buildingparser.stanford.edu/dataset.html#Download) and follow [PointNet](https://github.com/charlesq34/pointnet/blob/master/sem_seg/collect_indoor3d_data.py) to pre-process the dataset as follows or directly download the pre-processed data [here]().
+- Please download the [S3DIS Dataset](http://buildingparser.stanford.edu/dataset.html#Download) and follow [PointNet](https://github.com/charlesq34/pointnet/blob/master/sem_seg/collect_indoor3d_data.py) to pre-process the dataset as follows or directly download the pre-processed data [here](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3007346_connect_hku_hk/Ed4LYh7wwp1CkVp4OfpfAocBvVy52EPO4CtK0vSmKR3E6w?e=fgNfXl).
     ```
     DODA
     ├── data
