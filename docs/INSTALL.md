@@ -25,7 +25,7 @@ b. Install the dependent libraries as follows:
 
 * Install [`spconv v1.2`](https://github.com/traveller59/spconv) following official guidance.
 
-* Install [`pointgroup_ops`](lib/pointgroup_ops):
+* Install [`pointgroup_ops`](../lib/pointgroup_ops):
     ```
     conda install -c bioconda google-sparsehash
     cd lib/pointgroup_ops
@@ -33,7 +33,7 @@ b. Install the dependent libraries as follows:
     export LD_LIBRARY_PATH=/your_path_to_python_env/:LD_LIBRARY_PATH
     ```
     if you encounter any problems in th installing process, please refer to [PointGroup](https://github.com/dvlab-research/PointGroup) for assistance.
-* Install [`pointops`](lib/pointops2):
+* Install [`pointops`](../lib/pointops2):
     ```
     cd lib/pointops2
     python3 setup.py develop

@@ -1,5 +1,5 @@
 # Getting Started
-The dataset configs are located within [cfgs/dataset_configs](cfgs/dataset_configs), and the model configs are located within [cfgs](cfgs) for different settings.
+The dataset configs are located within [cfgs/dataset_cfgs](../cfgs/dataset_cfgs), and the model configs are located within [cfgs](../cfgs) for different settings.
 
 ### Dataset Preparation
 #### 3D-FRONT Dataset
