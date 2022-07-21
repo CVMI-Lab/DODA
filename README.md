@@ -41,7 +41,10 @@ Please refer to [GETTING_STARTED.md](docs/GETTING_STARTED.md) to learn more usag
 | DODA (only VSS) | 47.18 |[model](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3007346_connect_hku_hk/EamwE54moZ9DpO_5aX9CRkoBdjZ78k67I09Jh1YsCw5leQ?e=6amuih) |
 | DODA | 56.54 |[model](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/u3007346_connect_hku_hk/EcZMn62-DnJOldVLDfhu9yMBwn101aPVfTtwjOBlq95-3g?e=1jpe26) |
 
-Notice that the performance can be quite unsteady due to the simplicity and small sample size of S3DIS.
+Notice that
+- DODA performance relies on the pretrain model (DODA (only VSS)). If you find the self-training performance is unsatisfactory, consider to re-train a better pretrain model.
+- Performance on 3D-FRONT $\rightarrow$ S3DIS is quite unstable with high standard variance due to its simplicity and small sample sizes.
+
 
 ## Acknowledgments
 Our code base is partially borrowed from [PointGroup](https://github.com/dvlab-research/PointGroup), [PointWeb](https://github.com/hszhao/PointWeb) and [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).

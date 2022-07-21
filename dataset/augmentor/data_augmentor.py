@@ -53,7 +53,7 @@ class SplitSampler(object):
         mask = self.class_ratio > 0
         self.inverse_class_ratio = np.where(mask, 1.0 / (cfg.class_ratio + 10e-10), 10e-10)
         self.tail_class_ratio = np.sort(-self.inverse_class_ratio)[:self.num_c]
-        self.tail_class_ratio /= (self.tail_class_ratio.sum() + 10e-10)
+        self.tail_class_ratio /= self.tail_class_ratio.sum()
         self.tail_class_idx = np.argsort(-self.inverse_class_ratio)[:self.num_c]
         self.queues = []
         self.init_queue()

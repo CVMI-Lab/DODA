@@ -401,7 +401,7 @@ def train(model, model_fn, test_model_fn, source_reader, train_loader, val_loade
         logger.info('Best epoch: {}, best mIoU: {}'.format(best_epoch, best_mIoU))
 
     # delete pseudo labels
-    if not cfg.SELF_TRAIN.use_gt_label and not args.preserve_pseudo_labels:
+    if not args.preserve_pseudo_labels:
         os.system('rm -rf {}'.format(pseudo_labels_dir))
 
 
