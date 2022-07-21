@@ -20,8 +20,8 @@ Please refer to [INSTALL.md](docs/INSTALL.md) for the installation.
 Please refer to [GETTING_STARTED.md](docs/GETTING_STARTED.md) to learn more usage.
 
 #### Supported features and ToDo List
-- [ ] Release code
-- [ ] Support pre-trained model
+- [x] Release code
+- [x] Support pre-trained model
 - [ ] Support other baseline methods
 
 ## ModelZoo
