@@ -16,7 +16,7 @@ The dataset configs are located within [cfgs/dataset_cfgs](../cfgs/dataset_cfgs)
     ```
 
 #### ScanNet Dataset
-- Please download the [ScanNet Dataset](http://www.scan-net.org/) and follow [PointGroup](https://github.com/dvlab-research/PointGroup/blob/master/dataset/scannetv2/prepare_data_inst.py) to pre-process the dataset as follows.
+- Please download the [ScanNet Dataset](http://www.scan-net.org/) and follow [PointGroup](https://github.com/dvlab-research/PointGroup/blob/master/dataset/scannetv2/prepare_data_inst.py) to pre-process the dataset as follows. Note that we change the ignore label index from `-100` to `255`.
 
     ```
     DODA
