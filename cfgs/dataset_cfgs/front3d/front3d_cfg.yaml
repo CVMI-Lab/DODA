@@ -14,7 +14,7 @@ DATA_SPLIT:
 
 DATA_CLASS:
   n_classes: 71
-  class_names: ['Children Cabinet', 'Nightstand', 'Bookcase / jewelry Armoire', 'Wardrobe', 'Coffee Table'
+  class_names: ['Children Cabinet', 'Nightstand', 'Bookcase / jewelry Armoire', 'Wardrobe', 'Coffee Table',
                 'Corner/Side Table', 'Sideboard / Side Cabinet / Console Table', 'Wine Cabinet', 'TV Stand', 'Drawer Chest / Corner cabinet',
                 'Shelf', 'Round End Table', 'King-size Bed', 'Bunk Bed', 'Bed Frame',
                 'Single bed', 'Kids Bed', 'Dining Chair', 'Lounge Chair / Cafe Chair / Office Chair', 'Dressing Chair',
