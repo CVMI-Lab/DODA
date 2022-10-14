@@ -23,7 +23,7 @@ b. Install the dependent libraries as follows:
     pip install -r requirements.txt 
     ```
 
-* Install [`spconv v1.2`](https://github.com/traveller59/spconv) following official guidance.
+* Install [`spconv v1.2`](https://github.com/traveller59/spconv) following [`pointgroup_ops`](../lib/pointgroup_ops). Notice that there are some [modifications](https://github.com/llijiang/spconv/commit/740a5b717fc576b222abc169ae6047ff1e95363f) that makes the gradient output contiguous.
 
 * Install [`pointgroup_ops`](../lib/pointgroup_ops):
     ```
