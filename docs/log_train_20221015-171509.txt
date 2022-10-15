@@ -1,0 +1,621 @@
+[2022-10-15 17:15:09,208 INFO st.py 5248] *********************************** Start Logging*********************************
+[2022-10-15 17:15:09,208 INFO st.py 5248] CUDA_VISIBLE_DEVICES=ALL
+[2022-10-15 17:15:09,208 INFO st.py 5248] total_batch_size: 32
+[2022-10-15 17:15:09,208 INFO st.py 5248] cfg_file         cfgs/da_front3d_s3dis/spconv_st.yaml
+[2022-10-15 17:15:09,208 INFO st.py 5248] batch_size       4
+[2022-10-15 17:15:09,208 INFO st.py 5248] epochs           100
+[2022-10-15 17:15:09,208 INFO st.py 5248] workers          4
+[2022-10-15 17:15:09,209 INFO st.py 5248] extra_tag        default
+[2022-10-15 17:15:09,209 INFO st.py 5248] st_extra_tag     st
+[2022-10-15 17:15:09,209 INFO st.py 5248] start_epoch      0
+[2022-10-15 17:15:09,209 INFO st.py 5248] resume           None
+[2022-10-15 17:15:09,209 INFO st.py 5248] weight           ../pretrain_4718.pth
+[2022-10-15 17:15:09,209 INFO st.py 5248] weight_ema       None
+[2022-10-15 17:15:09,209 INFO st.py 5248] launcher         pytorch
+[2022-10-15 17:15:09,209 INFO st.py 5248] tcp_port         18867
+[2022-10-15 17:15:09,209 INFO st.py 5248] sync_bn          False
+[2022-10-15 17:15:09,209 INFO st.py 5248] reserve_old_ckpt False
+[2022-10-15 17:15:09,209 INFO st.py 5248] manual_seed      None
+[2022-10-15 17:15:09,209 INFO st.py 5248] ckpt_save_freq   1
+[2022-10-15 17:15:09,209 INFO st.py 5248] print_freq       5
+[2022-10-15 17:15:09,209 INFO st.py 5248] pseudo_labels_freq 5
+[2022-10-15 17:15:09,209 INFO st.py 5248] preserve_pseudo_labels False
+[2022-10-15 17:15:09,209 INFO st.py 5248] local_rank       0
+[2022-10-15 17:15:09,209 INFO st.py 5248] max_ckpt_save_num 30
+[2022-10-15 17:15:09,209 INFO st.py 5248] set_cfgs         None
+[2022-10-15 17:15:09,209 INFO st.py 5248] pin_memory       False
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.ROOT_DIR: /root/DODA
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.LOCAL_RANK: 0
+[2022-10-15 17:15:09,209 INFO config.py 5248] 
+cfg.COMMON_CLASSES = edict()
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.COMMON_CLASSES.n_classes: 11
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.COMMON_CLASSES.class_names: ['wall', 'floor', 'chair', 'sofa', 'table', 'door', 'window', 'bookshelf', 'ceiling', 'beam', 'column']
+[2022-10-15 17:15:09,209 INFO config.py 5248] 
+cfg.DATA_CONFIG = edict()
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.DATA_CONFIG.DATA_ROOT: ./data/3dfront/density1250
+[2022-10-15 17:15:09,209 INFO config.py 5248] cfg.DATA_CONFIG.DATASET: front3d
+[2022-10-15 17:15:09,209 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_SPLIT = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_SPLIT.split_files = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.split_files.training: ../train_list.txt
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.split_files.validation: ../val_list.txt
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.split_files.test: ../val_list.txt
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.training: train
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.validation: val
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.test: val
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_SPLIT.data_suffix: .npy
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_CLASS = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_CLASS.n_classes: 71
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_CLASS.class_names: ['Children Cabinet', 'Nightstand', 'Bookcase / jewelry Armoire', 'Wardrobe', 'Coffee Table', 'Corner/Side Table', 'Sideboard / Side Cabinet / Console Table', 'Wine Cabinet', 'TV Stand', 'Drawer Chest / Corner cabinet', 'Shelf', 'Round End Table', 'King-size Bed', 'Bunk Bed', 'Bed Frame', 'Single bed', 'Kids Bed', 'Dining Chair', 'Lounge Chair / Cafe Chair / Office Chair', 'Dressing Chair', 'Classic Chinese Chair', 'Barstool', 'Dressing Table', 'Dining Table', 'Desk', 'Three-Seat / Multi-seat Sofa', 'armchair', 'Loveseat Sofa', 'L-shaped Sofa', 'Lazy Sofa', 'Chaise Longue Sofa', 'Footstool / Sofastool / Bed End Stool / Stool', 'Pendant Lamp', 'Ceiling Lamp', 'Back', 'Flue', 'CustomizedFixedFurniture', 'WallInner', 'CustomizedCeiling', 'Cabinet', 'LightBand', 'SmartCustomizedCeiling', 'Floor', 'CustomizedPlatform', 'CustomizedFurniture', 'Customized_wainscot', 'Window', 'CustomizedPersonalizedModel', 'Column', 'clipMesh', 'WallOuter', 'Front', 'Hole', 'SewerPipe', 'BayWindow', 'SlabSide', 'Pocket', 'SlabBottom', 'Beam', 'Cornice', 'Baseboard', 'SlabTop', 'WallTop', 'CustomizedBackgroundModel', 'Door', 'WallBottom', 'Cabinet/LighBand', 'Ceiling', 'CustomizedFeatureWall', 'ExtrusionCustomizedCeilingModel', 'ExtrusionCustomizedBackgroundWall']
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_CLASS.ignore_label: 255
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.enabled: True
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.aug_list: ['vss', 'scene_aug', 'elastic', 'crop', 'shuffle']
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.scene_aug = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.scene_aug.flip = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.scene_aug.flip.p: 0.5
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.scene_aug.rotation = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.scene_aug.rotation.p: 1.0
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.scene_aug.rotation.value: [0.0, 0.0, 1.0]
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.scene_aug.jitter: True
+[2022-10-15 17:15:09,210 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.elastic = edict()
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.elastic.enabled: True
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.elastic.value: [[6, 40], [20, 160]]
+[2022-10-15 17:15:09,210 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.elastic.apply_to_feat: False
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.elastic.p: 1.0
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.shuffle: True
+[2022-10-15 17:15:09,211 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.vss = edict()
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.enabled: True
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.value: 8
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.mode: fixed
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.p: 1.0
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.radius: 1000
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.camera_view: 180
+[2022-10-15 17:15:09,211 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.vss.random_jitter = edict()
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.random_jitter.enabled: True
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.random_jitter.value: 0.01
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.vss.random_jitter.p: 1.0
+[2022-10-15 17:15:09,211 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_AUG.tacm = edict()
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_AUG.tacm.enabled: False
+[2022-10-15 17:15:09,211 INFO config.py 5248] 
+cfg.DATA_CONFIG.DATA_PROCESSOR = edict()
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.point_range: 200000000
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.voxel_scale: 50
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.cache: False
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.max_npoint: 250000
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.full_scale: [128, 512]
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.voxel_mode: 4
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.DATA_PROCESSOR.downsampling_scale: 1
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG._BASE_CONFIG_: cfgs/dataset_cfgs/front3d/front3d_cfg.yaml
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG.CLASS_MAPPER_FILE: dataset/class_mapper/3dfront_2_s3dis.json
+[2022-10-15 17:15:09,211 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR = edict()
+[2022-10-15 17:15:09,211 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_ROOT: ./data/s3dis/trainval_fullarea
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATASET: s3dis
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_SPLIT = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_SPLIT.test_area: 5
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_SPLIT.training: training
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_SPLIT.validation: validation
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_SPLIT.test: validation
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_CLASS = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_CLASS.n_classes: 13
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_CLASS.class_names: ['ceiling', 'floor', 'wall', 'beam', 'column', 'window', 'door', 'table', 'chair', 'bookcase', 'sofa', 'board', 'clutter']
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_CLASS.ignore_label: 255
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.enabled: True
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.aug_list: ['scene_aug', 'elastic', 'crop', 'shuffle']
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.rotation = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.rotation.p: 1.0
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.rotation.value: [0.0, 0.0, 1.0]
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.jitter: True
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.flip = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.scene_aug.flip.p: 0.5
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.elastic = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.elastic.enabled: True
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.elastic.value: [[6, 40], [20, 160]]
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.elastic.apply_to_feat: False
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.elastic.p: 1.0
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.shuffle: True
+[2022-10-15 17:15:09,212 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.vss = edict()
+[2022-10-15 17:15:09,212 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.enabled: False
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.value: 8
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.mode: fixed
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.p: 1.0
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.radius: 1000
+[2022-10-15 17:15:09,213 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.vss.random_jitter = edict()
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.random_jitter.enabled: True
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.random_jitter.value: 0.01
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.vss.random_jitter.p: 1.0
+[2022-10-15 17:15:09,213 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.tacm = edict()
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.enabled: True
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.split: [2, 2, 1]
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.p: 0.5
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.mix_ratio: 0.5
+[2022-10-15 17:15:09,213 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.permute_cuboid = edict()
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.permute_cuboid.enabled: True
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.permute_cuboid.p: 0.5
+[2022-10-15 17:15:09,213 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue = edict()
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue.enabled: False
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue.size: 256
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue.num_cuboid: 1.0
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue.num_class: 3
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_AUG.tacm.cuboid_queue.update_class_ratio: True
+[2022-10-15 17:15:09,213 INFO config.py 5248] 
+cfg.DATA_CONFIG_TAR.DATA_PROCESSOR = edict()
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.point_range: 200000000
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.voxel_scale: 50
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.cache: False
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.max_npoint: 250000
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.full_scale: [128, 512]
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.voxel_mode: 4
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.downsampling_scale: 4
+[2022-10-15 17:15:09,213 INFO config.py 5248] cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.no_downsample_infer: True
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.DATA_CONFIG_TAR._BASE_CONFIG_: cfgs/dataset_cfgs/s3dis/s3dis_cfg.yaml
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.DATA_CONFIG_TAR.CLASS_MAPPER_FILE: dataset/class_mapper/s3dis_2_3dfront.json
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.MODEL = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.NAME: SparseConvNet
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.MODEL.BACKBONE = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.BACKBONE.use_xyz: False
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.BACKBONE.in_channel: 3
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.BACKBONE.mid_channel: 16
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.BACKBONE.block_residual: True
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.BACKBONE.block_reps: 2
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.MODEL.PTS_HEAD = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.PTS_HEAD.enabled: True
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.PTS_HEAD.name: linear
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.MODEL.dsnorm: True
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.OPTIMIZATION = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.BATCH_SIZE_PER_GPU: 4
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.NUM_EPOCHS: 100
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.base_lr: 0.005
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.lr_decay: poly
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.optim: sgd
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.weight_decay: 0.0001
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.momentum: 0.9
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.step_epoch: 100
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.multiplier: 0.5
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.loss: cross_entropy
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.OPTIMIZATION.clip_grad: False
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.EVALUATION = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.EVALUATION.evaluate: True
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.EVALUATION.eval_freq: 2
+[2022-10-15 17:15:09,214 INFO config.py 5248] 
+cfg.SELF_TRAIN = edict()
+[2022-10-15 17:15:09,214 INFO config.py 5248] cfg.SELF_TRAIN.global_thres: False
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.thres: [0.7]
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.thres_ratio: [0.3]
+[2022-10-15 17:15:09,215 INFO config.py 5248] 
+cfg.SELF_TRAIN.SRC = edict()
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.SRC.use_data: True
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.SRC.loss_weight: 0.5
+[2022-10-15 17:15:09,215 INFO config.py 5248] 
+cfg.SELF_TRAIN.TAR = edict()
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.TAR.use_data: True
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.SELF_TRAIN.TAR.loss_weight: 1.0
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.TAG: spconv_st
+[2022-10-15 17:15:09,215 INFO config.py 5248] cfg.EXP_GROUP_PATH: da_front3d_s3dis
+[2022-10-15 17:15:13,259 INFO st.py 5248] #classifier parameters: 7531019
+[2022-10-15 17:15:13,345 INFO model_utils.py 5248] => loaded pretrained model '../pretrain_4718.pth' (epoch 68)
+[2022-10-15 17:15:13,346 INFO model_utils.py 5248] => commit id: 6809454
+[2022-10-15 17:15:13,348 INFO st.py 5248] optimizer LR: 0.005
+[2022-10-15 17:15:14,132 INFO front3d.py 5248] Totally 4995 samples in training set.
+[2022-10-15 17:15:14,150 INFO s3dis.py 5248] Totally 204 samples in training set.
+[2022-10-15 17:15:14,153 INFO s3dis.py 5248] Totally 68 samples in validation set.
+[2022-10-15 17:15:26,841 INFO st.py 5248] **********************Start training da_front3d_s3dis/spconv_st(default/st)**********************
+[2022-10-15 17:15:26,843 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:16:06,860 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.4772/0.5610/0.8441.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class wall : iou/accuracy 0.7211/0.9694.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class floor : iou/accuracy 0.9654/0.9804.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class chair : iou/accuracy 0.6782/0.7364.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class sofa : iou/accuracy 0.3260/0.6834.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class table : iou/accuracy 0.5423/0.6127.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class door : iou/accuracy 0.1967/0.2341.
+[2022-10-15 17:16:06,862 INFO st.py 5248] Class window : iou/accuracy 0.3100/0.3729.
+[2022-10-15 17:16:06,863 INFO st.py 5248] Class bookshelf : iou/accuracy 0.5515/0.6048.
+[2022-10-15 17:16:06,863 INFO st.py 5248] Class ceiling : iou/accuracy 0.9582/0.9769.
+[2022-10-15 17:16:06,863 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:16:06,863 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:16:06,863 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:16:06,864 INFO st.py 5248] thres ratio: [0.3]
+[2022-10-15 17:19:55,224 INFO st.py 5248] Epoch: [1/100][5/7] Data 0.018 (20.982) Batch 35.136 (45.671) Remain 08:49:01 Loss 0.3113 Loss_x 0.0707 Loss_u 0.2406 SrcAccuracy 0.9537 TarAccuracy 0.9255. 
+[2022-10-15 17:19:59,121 INFO st.py 5248] Train result at epoch [1/100]: Src mIoU/mAcc/allAcc 0.6650/0.7316/0.9559, Tar mIoU/mAcc/allAcc 0.5636/0.6495/0.9108.
+[2022-10-15 17:19:59,135 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_1.pth
+[2022-10-15 17:19:59,978 INFO st.py 5248] Best epoch: 0, best mIoU: 0.0
+[2022-10-15 17:22:53,493 INFO st.py 5248] Epoch: [2/100][5/7] Data 0.023 (13.330) Batch 39.419 (34.702) Remain 06:37:55 Loss 0.2586 Loss_x 0.0606 Loss_u 0.1981 SrcAccuracy 0.9558 TarAccuracy 0.9406. 
+[2022-10-15 17:22:57,896 INFO st.py 5248] Train result at epoch [2/100]: Src mIoU/mAcc/allAcc 0.6466/0.7128/0.9451, Tar mIoU/mAcc/allAcc 0.6094/0.6747/0.9352.
+[2022-10-15 17:22:57,949 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_2.pth
+[2022-10-15 17:22:58,341 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:23:01,344 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:23:16,734 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5059/0.5796/0.8538.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class wall : iou/accuracy 0.7364/0.9647.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class floor : iou/accuracy 0.9688/0.9855.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class chair : iou/accuracy 0.7259/0.7802.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class sofa : iou/accuracy 0.5453/0.7503.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class table : iou/accuracy 0.6484/0.7826.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class door : iou/accuracy 0.2279/0.3103.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class window : iou/accuracy 0.1358/0.1421.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6198/0.6843.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class ceiling : iou/accuracy 0.9559/0.9756.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:23:16,734 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:23:16,734 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:23:19,738 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 17:23:20,049 INFO st.py 5248] Best epoch: 2, best mIoU: 0.5058503150939941
+[2022-10-15 17:26:22,913 INFO st.py 5248] Epoch: [3/100][5/7] Data 0.064 (12.563) Batch 44.027 (36.572) Remain 06:55:05 Loss 0.2715 Loss_x 0.0648 Loss_u 0.2067 SrcAccuracy 0.9537 TarAccuracy 0.9328. 
+[2022-10-15 17:26:31,893 INFO st.py 5248] Train result at epoch [3/100]: Src mIoU/mAcc/allAcc 0.6143/0.6902/0.9468, Tar mIoU/mAcc/allAcc 0.6026/0.6722/0.9339.
+[2022-10-15 17:26:31,912 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_3.pth
+[2022-10-15 17:26:32,344 INFO st.py 5248] Best epoch: 2, best mIoU: 0.5058503150939941
+[2022-10-15 17:29:39,021 INFO st.py 5248] Epoch: [4/100][5/7] Data 0.027 (14.595) Batch 39.373 (37.335) Remain 06:59:23 Loss 0.3011 Loss_x 0.0690 Loss_u 0.2321 SrcAccuracy 0.9538 TarAccuracy 0.9326. 
+[2022-10-15 17:29:43,234 INFO st.py 5248] Train result at epoch [4/100]: Src mIoU/mAcc/allAcc 0.6397/0.7136/0.9510, Tar mIoU/mAcc/allAcc 0.6040/0.6690/0.9338.
+[2022-10-15 17:29:43,267 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_4.pth
+[2022-10-15 17:29:43,682 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:29:46,685 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:30:00,737 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.4894/0.5848/0.8513.
+[2022-10-15 17:30:00,737 INFO st.py 5248] Class wall : iou/accuracy 0.7408/0.9653.
+[2022-10-15 17:30:00,737 INFO st.py 5248] Class floor : iou/accuracy 0.9700/0.9822.
+[2022-10-15 17:30:00,737 INFO st.py 5248] Class chair : iou/accuracy 0.6837/0.7095.
+[2022-10-15 17:30:00,737 INFO st.py 5248] Class sofa : iou/accuracy 0.3347/0.8149.
+[2022-10-15 17:30:00,737 INFO st.py 5248] Class table : iou/accuracy 0.6095/0.6844.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class door : iou/accuracy 0.2690/0.3855.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class window : iou/accuracy 0.2362/0.2691.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class bookshelf : iou/accuracy 0.5810/0.6482.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class ceiling : iou/accuracy 0.9582/0.9742.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:30:00,738 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:30:00,738 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:30:03,739 INFO st.py 5248] Best epoch: 2, best mIoU: 0.5058503150939941
+[2022-10-15 17:32:57,892 INFO st.py 5248] Epoch: [5/100][5/7] Data 29.893 (24.657) Batch 43.436 (34.827) Remain 06:27:09 Loss 0.2385 Loss_x 0.0656 Loss_u 0.1729 SrcAccuracy 0.9525 TarAccuracy 0.9500. 
+[2022-10-15 17:33:02,905 INFO st.py 5248] Train result at epoch [5/100]: Src mIoU/mAcc/allAcc 0.6289/0.6969/0.9500, Tar mIoU/mAcc/allAcc 0.6209/0.6874/0.9391.
+[2022-10-15 17:33:02,919 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_5.pth
+[2022-10-15 17:33:03,310 INFO st.py 5248] Best epoch: 2, best mIoU: 0.5058503150939941
+[2022-10-15 17:35:52,540 INFO st.py 5248] Epoch: [6/100][5/7] Data 30.480 (28.194) Batch 33.560 (33.846) Remain 06:12:18 Loss 0.2582 Loss_x 0.0771 Loss_u 0.1811 SrcAccuracy 0.9505 TarAccuracy 0.9409. 
+[2022-10-15 17:35:57,145 INFO st.py 5248] Train result at epoch [6/100]: Src mIoU/mAcc/allAcc 0.6297/0.7039/0.9456, Tar mIoU/mAcc/allAcc 0.6119/0.6808/0.9306.
+[2022-10-15 17:35:57,163 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_6.pth
+[2022-10-15 17:35:57,533 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:36:00,541 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:36:48,359 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5163/0.6025/0.8583.
+[2022-10-15 17:36:48,359 INFO st.py 5248] Class wall : iou/accuracy 0.7446/0.9671.
+[2022-10-15 17:36:48,359 INFO st.py 5248] Class floor : iou/accuracy 0.9552/0.9703.
+[2022-10-15 17:36:48,359 INFO st.py 5248] Class chair : iou/accuracy 0.7411/0.7844.
+[2022-10-15 17:36:48,359 INFO st.py 5248] Class sofa : iou/accuracy 0.5208/0.8794.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class table : iou/accuracy 0.6482/0.7791.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class door : iou/accuracy 0.2425/0.3210.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class window : iou/accuracy 0.2355/0.2550.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6304/0.6938.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class ceiling : iou/accuracy 0.9610/0.9772.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:36:48,360 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:36:48,360 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:36:51,364 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 17:36:51,712 INFO st.py 5248] Best epoch: 6, best mIoU: 0.5162994265556335
+[2022-10-15 17:39:46,718 INFO st.py 5248] Epoch: [7/100][5/7] Data 6.347 (17.567) Batch 43.976 (35.001) Remain 06:20:55 Loss 0.2829 Loss_x 0.0794 Loss_u 0.2035 SrcAccuracy 0.9451 TarAccuracy 0.9337. 
+[2022-10-15 17:40:17,418 INFO st.py 5248] Train result at epoch [7/100]: Src mIoU/mAcc/allAcc 0.6368/0.7046/0.9465, Tar mIoU/mAcc/allAcc 0.6031/0.6689/0.9377.
+[2022-10-15 17:40:17,432 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_7.pth
+[2022-10-15 17:40:17,786 INFO st.py 5248] Best epoch: 6, best mIoU: 0.5162994265556335
+[2022-10-15 17:42:58,943 INFO st.py 5248] Epoch: [8/100][5/7] Data 0.022 (16.134) Batch 16.169 (32.231) Remain 05:47:01 Loss 0.3306 Loss_x 0.1068 Loss_u 0.2238 SrcAccuracy 0.9266 TarAccuracy 0.9337. 
+[2022-10-15 17:43:26,798 INFO st.py 5248] Train result at epoch [8/100]: Src mIoU/mAcc/allAcc 0.6289/0.6989/0.9458, Tar mIoU/mAcc/allAcc 0.6473/0.7048/0.9443.
+[2022-10-15 17:43:26,815 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_8.pth
+[2022-10-15 17:43:27,230 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:43:30,232 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:43:41,721 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5349/0.6217/0.8651.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class wall : iou/accuracy 0.7547/0.9413.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class floor : iou/accuracy 0.9705/0.9833.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class chair : iou/accuracy 0.7352/0.7668.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class sofa : iou/accuracy 0.5395/0.8550.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class table : iou/accuracy 0.6590/0.7538.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class door : iou/accuracy 0.2222/0.2776.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class window : iou/accuracy 0.3994/0.5498.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6460/0.7361.
+[2022-10-15 17:43:41,721 INFO st.py 5248] Class ceiling : iou/accuracy 0.9577/0.9753.
+[2022-10-15 17:43:41,722 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:43:41,722 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:43:41,722 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:43:44,726 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 17:43:45,083 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 17:46:38,389 INFO st.py 5248] Epoch: [9/100][5/7] Data 0.032 (13.380) Batch 32.340 (34.661) Remain 06:09:08 Loss 0.2236 Loss_x 0.0667 Loss_u 0.1569 SrcAccuracy 0.9553 TarAccuracy 0.9525. 
+[2022-10-15 17:46:42,988 INFO st.py 5248] Train result at epoch [9/100]: Src mIoU/mAcc/allAcc 0.6421/0.7108/0.9514, Tar mIoU/mAcc/allAcc 0.6578/0.7217/0.9490.
+[2022-10-15 17:46:43,004 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_9.pth
+[2022-10-15 17:46:43,437 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 17:49:40,000 INFO st.py 5248] Epoch: [10/100][5/7] Data 33.637 (31.083) Batch 36.501 (35.312) Remain 06:11:56 Loss 0.2402 Loss_x 0.0934 Loss_u 0.1468 SrcAccuracy 0.9373 TarAccuracy 0.9591. 
+[2022-10-15 17:49:44,159 INFO st.py 5248] Train result at epoch [10/100]: Src mIoU/mAcc/allAcc 0.6304/0.7005/0.9449, Tar mIoU/mAcc/allAcc 0.6258/0.6871/0.9414.
+[2022-10-15 17:49:44,179 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_10.pth
+[2022-10-15 17:49:44,605 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:49:47,607 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:50:04,155 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5081/0.6025/0.8577.
+[2022-10-15 17:50:04,155 INFO st.py 5248] Class wall : iou/accuracy 0.7460/0.9678.
+[2022-10-15 17:50:04,155 INFO st.py 5248] Class floor : iou/accuracy 0.9685/0.9821.
+[2022-10-15 17:50:04,155 INFO st.py 5248] Class chair : iou/accuracy 0.7179/0.7452.
+[2022-10-15 17:50:04,155 INFO st.py 5248] Class sofa : iou/accuracy 0.3898/0.8511.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class table : iou/accuracy 0.6798/0.7941.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class door : iou/accuracy 0.2203/0.2715.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class window : iou/accuracy 0.3120/0.4042.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class bookshelf : iou/accuracy 0.5963/0.6381.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class ceiling : iou/accuracy 0.9586/0.9732.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:50:04,156 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:50:04,156 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:50:07,160 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 17:52:49,310 INFO st.py 5248] Epoch: [11/100][5/7] Data 0.062 (16.057) Batch 26.524 (32.414) Remain 05:37:38 Loss 0.2288 Loss_x 0.0717 Loss_u 0.1571 SrcAccuracy 0.9489 TarAccuracy 0.9499. 
+[2022-10-15 17:52:54,523 INFO st.py 5248] Train result at epoch [11/100]: Src mIoU/mAcc/allAcc 0.6456/0.7089/0.9442, Tar mIoU/mAcc/allAcc 0.6354/0.7033/0.9484.
+[2022-10-15 17:52:54,563 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_11.pth
+[2022-10-15 17:52:54,942 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 17:55:53,887 INFO st.py 5248] Epoch: [12/100][5/7] Data 0.073 (13.716) Batch 38.901 (35.788) Remain 06:08:37 Loss 0.2714 Loss_x 0.0629 Loss_u 0.2085 SrcAccuracy 0.9531 TarAccuracy 0.9427. 
+[2022-10-15 17:56:01,112 INFO st.py 5248] Train result at epoch [12/100]: Src mIoU/mAcc/allAcc 0.6456/0.7108/0.9529, Tar mIoU/mAcc/allAcc 0.6213/0.6896/0.9401.
+[2022-10-15 17:56:01,135 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_12.pth
+[2022-10-15 17:56:01,511 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 17:56:04,514 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 17:56:20,696 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5314/0.6154/0.8675.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class wall : iou/accuracy 0.7637/0.9576.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class floor : iou/accuracy 0.9701/0.9839.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class chair : iou/accuracy 0.7278/0.7525.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class sofa : iou/accuracy 0.5179/0.8076.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class table : iou/accuracy 0.6689/0.8455.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class door : iou/accuracy 0.2504/0.3185.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class window : iou/accuracy 0.3448/0.4129.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6426/0.7167.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class ceiling : iou/accuracy 0.9585/0.9738.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:56:20,696 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 17:56:20,696 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 17:56:23,699 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 17:59:03,184 INFO st.py 5248] Epoch: [13/100][5/7] Data 0.050 (10.247) Batch 4.566 (31.893) Remain 05:24:46 Loss 0.3930 Loss_x 0.1014 Loss_u 0.2917 SrcAccuracy 0.9376 TarAccuracy 0.9063. 
+[2022-10-15 17:59:34,141 INFO st.py 5248] Train result at epoch [13/100]: Src mIoU/mAcc/allAcc 0.6354/0.7038/0.9515, Tar mIoU/mAcc/allAcc 0.6191/0.6848/0.9347.
+[2022-10-15 17:59:34,168 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_13.pth
+[2022-10-15 17:59:34,521 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:02:35,085 INFO st.py 5248] Epoch: [14/100][5/7] Data 0.083 (11.935) Batch 47.600 (36.112) Remain 06:03:31 Loss 0.2371 Loss_x 0.0821 Loss_u 0.1550 SrcAccuracy 0.9443 TarAccuracy 0.9593. 
+[2022-10-15 18:02:38,827 INFO st.py 5248] Train result at epoch [14/100]: Src mIoU/mAcc/allAcc 0.6273/0.7024/0.9469, Tar mIoU/mAcc/allAcc 0.6485/0.7118/0.9478.
+[2022-10-15 18:02:38,846 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_14.pth
+[2022-10-15 18:02:39,229 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:02:42,232 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:02:57,208 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5056/0.5840/0.8560.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class wall : iou/accuracy 0.7354/0.9746.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class floor : iou/accuracy 0.9702/0.9885.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class chair : iou/accuracy 0.7296/0.7503.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class sofa : iou/accuracy 0.4515/0.7906.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class table : iou/accuracy 0.6835/0.7920.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class door : iou/accuracy 0.2132/0.2613.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class window : iou/accuracy 0.2117/0.2331.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6069/0.6630.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class ceiling : iou/accuracy 0.9597/0.9705.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:02:57,209 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:02:57,209 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:03:00,211 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:05:56,795 INFO st.py 5248] Epoch: [15/100][5/7] Data 0.026 (12.294) Batch 26.745 (35.316) Remain 05:51:23 Loss 0.2473 Loss_x 0.0886 Loss_u 0.1587 SrcAccuracy 0.9393 TarAccuracy 0.9469. 
+[2022-10-15 18:06:03,961 INFO st.py 5248] Train result at epoch [15/100]: Src mIoU/mAcc/allAcc 0.6155/0.6867/0.9464, Tar mIoU/mAcc/allAcc 0.6523/0.7118/0.9509.
+[2022-10-15 18:06:03,976 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_15.pth
+[2022-10-15 18:06:04,404 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:09:09,895 INFO st.py 5248] Epoch: [16/100][5/7] Data 0.022 (13.510) Batch 55.845 (37.098) Remain 06:04:47 Loss 0.2420 Loss_x 0.0669 Loss_u 0.1751 SrcAccuracy 0.9498 TarAccuracy 0.9491. 
+[2022-10-15 18:09:15,133 INFO st.py 5248] Train result at epoch [16/100]: Src mIoU/mAcc/allAcc 0.6409/0.7104/0.9463, Tar mIoU/mAcc/allAcc 0.6493/0.7106/0.9483.
+[2022-10-15 18:09:15,149 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_16.pth
+[2022-10-15 18:09:15,580 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:09:18,583 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:09:34,980 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5141/0.6142/0.8649.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class wall : iou/accuracy 0.7626/0.9560.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class floor : iou/accuracy 0.9708/0.9842.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class chair : iou/accuracy 0.7062/0.7453.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class sofa : iou/accuracy 0.3961/0.8482.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class table : iou/accuracy 0.6477/0.8280.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class door : iou/accuracy 0.2277/0.2799.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class window : iou/accuracy 0.3490/0.4305.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6345/0.7097.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class ceiling : iou/accuracy 0.9609/0.9738.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:09:34,981 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:09:34,981 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:09:37,985 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:12:34,326 INFO st.py 5248] Epoch: [17/100][5/7] Data 21.131 (18.515) Batch 46.572 (35.258) Remain 05:42:35 Loss 0.2631 Loss_x 0.0946 Loss_u 0.1685 SrcAccuracy 0.9405 TarAccuracy 0.9472. 
+[2022-10-15 18:12:52,522 INFO st.py 5248] Train result at epoch [17/100]: Src mIoU/mAcc/allAcc 0.6399/0.7088/0.9486, Tar mIoU/mAcc/allAcc 0.6396/0.7072/0.9437.
+[2022-10-15 18:12:52,534 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_17.pth
+[2022-10-15 18:12:52,918 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:15:48,883 INFO st.py 5248] Epoch: [18/100][5/7] Data 0.069 (14.138) Batch 37.585 (35.193) Remain 05:37:50 Loss 0.2326 Loss_x 0.0561 Loss_u 0.1765 SrcAccuracy 0.9624 TarAccuracy 0.9425. 
+[2022-10-15 18:15:53,105 INFO st.py 5248] Train result at epoch [18/100]: Src mIoU/mAcc/allAcc 0.6445/0.7086/0.9521, Tar mIoU/mAcc/allAcc 0.6567/0.7145/0.9460.
+[2022-10-15 18:15:53,126 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_18.pth
+[2022-10-15 18:15:53,526 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:15:56,529 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:16:12,854 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5198/0.6198/0.8653.
+[2022-10-15 18:16:12,854 INFO st.py 5248] Class wall : iou/accuracy 0.7594/0.9581.
+[2022-10-15 18:16:12,854 INFO st.py 5248] Class floor : iou/accuracy 0.9709/0.9819.
+[2022-10-15 18:16:12,854 INFO st.py 5248] Class chair : iou/accuracy 0.7230/0.7791.
+[2022-10-15 18:16:12,854 INFO st.py 5248] Class sofa : iou/accuracy 0.3950/0.9053.
+[2022-10-15 18:16:12,854 INFO st.py 5248] Class table : iou/accuracy 0.6633/0.7427.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class door : iou/accuracy 0.2282/0.2857.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class window : iou/accuracy 0.3902/0.4748.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6302/0.7159.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class ceiling : iou/accuracy 0.9570/0.9745.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:16:12,855 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:16:12,855 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:16:15,858 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:19:22,290 INFO st.py 5248] Epoch: [19/100][5/7] Data 11.914 (19.834) Batch 61.830 (37.281) Remain 05:53:32 Loss 0.2416 Loss_x 0.0727 Loss_u 0.1689 SrcAccuracy 0.9497 TarAccuracy 0.9446. 
+[2022-10-15 18:19:26,446 INFO st.py 5248] Train result at epoch [19/100]: Src mIoU/mAcc/allAcc 0.6431/0.7135/0.9470, Tar mIoU/mAcc/allAcc 0.6526/0.7159/0.9498.
+[2022-10-15 18:19:26,457 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_19.pth
+[2022-10-15 18:19:26,847 INFO st.py 5248] Best epoch: 8, best mIoU: 0.5349137783050537
+[2022-10-15 18:22:24,751 INFO st.py 5248] Epoch: [20/100][5/7] Data 0.025 (11.868) Batch 40.488 (35.580) Remain 05:33:16 Loss 0.1898 Loss_x 0.0629 Loss_u 0.1268 SrcAccuracy 0.9557 TarAccuracy 0.9604. 
+[2022-10-15 18:22:29,764 INFO st.py 5248] Train result at epoch [20/100]: Src mIoU/mAcc/allAcc 0.6454/0.7138/0.9478, Tar mIoU/mAcc/allAcc 0.6628/0.7160/0.9548.
+[2022-10-15 18:22:29,786 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_20.pth
+[2022-10-15 18:22:30,199 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:22:33,202 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:22:48,526 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5388/0.6252/0.8688.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class wall : iou/accuracy 0.7609/0.9455.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class floor : iou/accuracy 0.9710/0.9826.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class chair : iou/accuracy 0.7415/0.7861.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class sofa : iou/accuracy 0.4923/0.8082.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class table : iou/accuracy 0.6612/0.7326.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class door : iou/accuracy 0.2829/0.3464.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class window : iou/accuracy 0.4159/0.5632.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6449/0.7374.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class ceiling : iou/accuracy 0.9565/0.9754.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:22:48,527 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:22:48,527 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:22:51,532 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 18:22:51,884 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:25:59,286 INFO st.py 5248] Epoch: [21/100][5/7] Data 28.493 (20.103) Batch 58.930 (37.480) Remain 05:46:41 Loss 0.3035 Loss_x 0.0957 Loss_u 0.2077 SrcAccuracy 0.9335 TarAccuracy 0.9460. 
+[2022-10-15 18:26:03,317 INFO st.py 5248] Train result at epoch [21/100]: Src mIoU/mAcc/allAcc 0.6388/0.7058/0.9448, Tar mIoU/mAcc/allAcc 0.6578/0.7164/0.9493.
+[2022-10-15 18:26:03,331 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_21.pth
+[2022-10-15 18:26:03,751 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:29:03,723 INFO st.py 5248] Epoch: [22/100][5/7] Data 0.172 (16.524) Batch 25.638 (35.994) Remain 05:28:44 Loss 0.2268 Loss_x 0.0704 Loss_u 0.1564 SrcAccuracy 0.9495 TarAccuracy 0.9471. 
+[2022-10-15 18:29:07,863 INFO st.py 5248] Train result at epoch [22/100]: Src mIoU/mAcc/allAcc 0.6524/0.7174/0.9536, Tar mIoU/mAcc/allAcc 0.6662/0.7199/0.9551.
+[2022-10-15 18:29:07,886 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_22.pth
+[2022-10-15 18:29:08,306 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:29:11,309 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:29:27,757 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5314/0.6297/0.8640.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class wall : iou/accuracy 0.7521/0.9418.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class floor : iou/accuracy 0.9687/0.9813.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class chair : iou/accuracy 0.7496/0.7858.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class sofa : iou/accuracy 0.4510/0.8736.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class table : iou/accuracy 0.6840/0.7960.
+[2022-10-15 18:29:27,757 INFO st.py 5248] Class door : iou/accuracy 0.2862/0.3555.
+[2022-10-15 18:29:27,758 INFO st.py 5248] Class window : iou/accuracy 0.3593/0.5229.
+[2022-10-15 18:29:27,758 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6362/0.6950.
+[2022-10-15 18:29:27,758 INFO st.py 5248] Class ceiling : iou/accuracy 0.9582/0.9746.
+[2022-10-15 18:29:27,758 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:29:27,758 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:29:27,758 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:29:30,761 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:32:08,090 INFO st.py 5248] Epoch: [23/100][5/7] Data 0.053 (14.916) Batch 13.196 (31.450) Remain 04:43:34 Loss 0.2666 Loss_x 0.0949 Loss_u 0.1718 SrcAccuracy 0.9348 TarAccuracy 0.9455. 
+[2022-10-15 18:32:59,723 INFO st.py 5248] Train result at epoch [23/100]: Src mIoU/mAcc/allAcc 0.6482/0.7186/0.9526, Tar mIoU/mAcc/allAcc 0.6575/0.7153/0.9472.
+[2022-10-15 18:32:59,735 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_23.pth
+[2022-10-15 18:33:00,135 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:35:51,305 INFO st.py 5248] Epoch: [24/100][5/7] Data 23.550 (21.621) Batch 33.654 (34.234) Remain 05:04:40 Loss 0.2591 Loss_x 0.1044 Loss_u 0.1547 SrcAccuracy 0.9444 TarAccuracy 0.9526. 
+[2022-10-15 18:36:05,419 INFO st.py 5248] Train result at epoch [24/100]: Src mIoU/mAcc/allAcc 0.6492/0.7154/0.9502, Tar mIoU/mAcc/allAcc 0.6688/0.7212/0.9530.
+[2022-10-15 18:36:05,437 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_24.pth
+[2022-10-15 18:36:05,825 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:36:08,829 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:36:20,673 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5243/0.6220/0.8662.
+[2022-10-15 18:36:20,673 INFO st.py 5248] Class wall : iou/accuracy 0.7647/0.9633.
+[2022-10-15 18:36:20,673 INFO st.py 5248] Class floor : iou/accuracy 0.9657/0.9751.
+[2022-10-15 18:36:20,673 INFO st.py 5248] Class chair : iou/accuracy 0.7307/0.7488.
+[2022-10-15 18:36:20,673 INFO st.py 5248] Class sofa : iou/accuracy 0.4073/0.9035.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class table : iou/accuracy 0.6783/0.7647.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class door : iou/accuracy 0.2873/0.3574.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class window : iou/accuracy 0.3424/0.4419.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6356/0.7176.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class ceiling : iou/accuracy 0.9553/0.9693.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:36:20,674 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:36:20,674 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:36:23,678 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:39:04,713 INFO st.py 5248] Epoch: [25/100][5/7] Data 0.019 (12.520) Batch 30.633 (32.203) Remain 04:42:50 Loss 0.2354 Loss_x 0.0746 Loss_u 0.1608 SrcAccuracy 0.9506 TarAccuracy 0.9510. 
+[2022-10-15 18:39:08,739 INFO st.py 5248] Train result at epoch [25/100]: Src mIoU/mAcc/allAcc 0.6568/0.7198/0.9531, Tar mIoU/mAcc/allAcc 0.6653/0.7248/0.9511.
+[2022-10-15 18:39:08,762 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_25.pth
+[2022-10-15 18:39:09,133 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:41:29,114 INFO st.py 5248] Epoch: [26/100][5/7] Data 11.407 (18.897) Batch 24.991 (27.996) Remain 04:02:37 Loss 0.1857 Loss_x 0.0790 Loss_u 0.1067 SrcAccuracy 0.9515 TarAccuracy 0.9673. 
+[2022-10-15 18:41:32,882 INFO st.py 5248] Train result at epoch [26/100]: Src mIoU/mAcc/allAcc 0.6512/0.7130/0.9526, Tar mIoU/mAcc/allAcc 0.6542/0.7145/0.9440.
+[2022-10-15 18:41:32,908 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_26.pth
+[2022-10-15 18:41:33,289 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:41:36,292 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:41:47,928 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5362/0.6241/0.8652.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class wall : iou/accuracy 0.7623/0.9540.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class floor : iou/accuracy 0.9702/0.9827.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class chair : iou/accuracy 0.7512/0.7929.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class sofa : iou/accuracy 0.5234/0.8262.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class table : iou/accuracy 0.6958/0.8110.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class door : iou/accuracy 0.2335/0.3031.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class window : iou/accuracy 0.3960/0.5556.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6087/0.6646.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class ceiling : iou/accuracy 0.9575/0.9750.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:41:47,928 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:41:47,928 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:41:50,931 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:45:50,161 INFO st.py 5248] Epoch: [27/100][5/7] Data 0.079 (13.706) Batch 26.078 (47.830) Remain 06:48:57 Loss 0.2347 Loss_x 0.0751 Loss_u 0.1597 SrcAccuracy 0.9500 TarAccuracy 0.9506. 
+[2022-10-15 18:46:13,369 INFO st.py 5248] Train result at epoch [27/100]: Src mIoU/mAcc/allAcc 0.6555/0.7240/0.9515, Tar mIoU/mAcc/allAcc 0.6626/0.7204/0.9495.
+[2022-10-15 18:46:13,388 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_27.pth
+[2022-10-15 18:46:14,047 INFO st.py 5248] Best epoch: 20, best mIoU: 0.5388168692588806
+[2022-10-15 18:49:16,036 INFO st.py 5248] Epoch: [28/100][5/7] Data 24.956 (26.702) Batch 37.889 (36.397) Remain 05:06:56 Loss 0.1961 Loss_x 0.0764 Loss_u 0.1196 SrcAccuracy 0.9471 TarAccuracy 0.9608. 
+[2022-10-15 18:49:20,330 INFO st.py 5248] Train result at epoch [28/100]: Src mIoU/mAcc/allAcc 0.6306/0.7034/0.9447, Tar mIoU/mAcc/allAcc 0.6781/0.7311/0.9537.
+[2022-10-15 18:49:20,343 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_28.pth
+[2022-10-15 18:49:20,743 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:49:23,746 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:49:39,779 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5409/0.6399/0.8668.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class wall : iou/accuracy 0.7657/0.9380.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class floor : iou/accuracy 0.9669/0.9820.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class chair : iou/accuracy 0.7501/0.8068.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class sofa : iou/accuracy 0.5056/0.8882.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class table : iou/accuracy 0.6826/0.7575.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class door : iou/accuracy 0.3037/0.4101.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class window : iou/accuracy 0.3835/0.5733.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6383/0.7117.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class ceiling : iou/accuracy 0.9537/0.9714.
+[2022-10-15 18:49:39,779 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:49:39,780 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:49:39,780 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:49:42,783 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 18:49:43,123 INFO st.py 5248] Best epoch: 28, best mIoU: 0.5409265756607056
+[2022-10-15 18:52:44,492 INFO st.py 5248] Epoch: [29/100][5/7] Data 0.021 (14.198) Batch 53.023 (36.273) Remain 05:01:40 Loss 0.2447 Loss_x 0.0639 Loss_u 0.1809 SrcAccuracy 0.9555 TarAccuracy 0.9401. 
+[2022-10-15 18:52:48,458 INFO st.py 5248] Train result at epoch [29/100]: Src mIoU/mAcc/allAcc 0.6603/0.7266/0.9537, Tar mIoU/mAcc/allAcc 0.6590/0.7230/0.9478.
+[2022-10-15 18:52:48,475 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_29.pth
+[2022-10-15 18:52:48,907 INFO st.py 5248] Best epoch: 28, best mIoU: 0.5409265756607056
+[2022-10-15 18:55:41,944 INFO st.py 5248] Epoch: [30/100][5/7] Data 4.042 (20.083) Batch 8.362 (34.607) Remain 04:43:46 Loss 0.2224 Loss_x 0.0533 Loss_u 0.1690 SrcAccuracy 0.9619 TarAccuracy 0.9484. 
+[2022-10-15 18:56:01,700 INFO st.py 5248] Train result at epoch [30/100]: Src mIoU/mAcc/allAcc 0.6198/0.6823/0.9494, Tar mIoU/mAcc/allAcc 0.6593/0.7089/0.9513.
+[2022-10-15 18:56:01,716 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_30.pth
+[2022-10-15 18:56:02,117 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 18:56:05,120 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 18:56:17,237 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5514/0.6343/0.8681.
+[2022-10-15 18:56:17,237 INFO st.py 5248] Class wall : iou/accuracy 0.7600/0.9520.
+[2022-10-15 18:56:17,237 INFO st.py 5248] Class floor : iou/accuracy 0.9670/0.9776.
+[2022-10-15 18:56:17,237 INFO st.py 5248] Class chair : iou/accuracy 0.7527/0.8116.
+[2022-10-15 18:56:17,237 INFO st.py 5248] Class sofa : iou/accuracy 0.5977/0.8306.
+[2022-10-15 18:56:17,237 INFO st.py 5248] Class table : iou/accuracy 0.7016/0.8358.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class door : iou/accuracy 0.2796/0.3784.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class window : iou/accuracy 0.4218/0.5319.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6336/0.6912.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class ceiling : iou/accuracy 0.9508/0.9684.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:56:17,238 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 18:56:17,238 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 18:56:20,242 INFO st.py 5248] Best Model Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/best_train.pth
+[2022-10-15 18:56:20,587 INFO st.py 5248] Best epoch: 30, best mIoU: 0.5513609647750854
+[2022-10-15 18:59:15,465 INFO st.py 5248] Epoch: [31/100][5/7] Data 52.285 (27.112) Batch 55.190 (34.975) Remain 04:42:42 Loss 0.2747 Loss_x 0.0706 Loss_u 0.2041 SrcAccuracy 0.9536 TarAccuracy 0.9442. 
+[2022-10-15 18:59:20,277 INFO st.py 5248] Train result at epoch [31/100]: Src mIoU/mAcc/allAcc 0.6422/0.7115/0.9518, Tar mIoU/mAcc/allAcc 0.6706/0.7347/0.9524.
+[2022-10-15 18:59:20,295 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_31.pth
+[2022-10-15 18:59:20,827 INFO st.py 5248] Best epoch: 30, best mIoU: 0.5513609647750854
+[2022-10-15 19:02:20,650 INFO st.py 5248] Epoch: [32/100][5/7] Data 27.934 (22.505) Batch 52.076 (35.964) Remain 04:46:30 Loss 0.2204 Loss_x 0.0587 Loss_u 0.1617 SrcAccuracy 0.9574 TarAccuracy 0.9502. 
+[2022-10-15 19:02:25,201 INFO st.py 5248] Train result at epoch [32/100]: Src mIoU/mAcc/allAcc 0.6585/0.7153/0.9550, Tar mIoU/mAcc/allAcc 0.6645/0.7164/0.9515.
+[2022-10-15 19:02:25,214 INFO st.py 5248] Saving checkpoint to: /root/DODA/output/da_front3d_s3dis/spconv_st/default/st/ckpt/train_epoch_32.pth
+[2022-10-15 19:02:25,631 INFO st.py 5248] Model Evaluation ..... 
+[2022-10-15 19:02:28,633 INFO st.py 5248] >>>>>>>>>>>>>>>> Start Evaluation >>>>>>>>>>>>>>>>
+[2022-10-15 19:02:43,194 INFO st.py 5248] Val result: mIoU/mAcc/allAcc 0.5415/0.6103/0.8665.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class wall : iou/accuracy 0.7636/0.9449.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class floor : iou/accuracy 0.9673/0.9798.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class chair : iou/accuracy 0.7432/0.7965.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class sofa : iou/accuracy 0.5775/0.6462.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class table : iou/accuracy 0.6865/0.8064.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class door : iou/accuracy 0.2585/0.3319.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class window : iou/accuracy 0.3649/0.5052.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class bookshelf : iou/accuracy 0.6416/0.7300.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class ceiling : iou/accuracy 0.9536/0.9722.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class beam : iou/accuracy 0.0000/0.0000.
+[2022-10-15 19:02:43,195 INFO st.py 5248] Class column : iou/accuracy 0.0000/0.0000.
+[2022-10-15 19:02:43,195 INFO st.py 5248] <<<<<<<<<<<<<<<<< End Evaluation <<<<<<<<<<<<<<<<<
+[2022-10-15 19:02:46,196 INFO st.py 5248] Best epoch: 30, best mIoU: 0.5513609647750854
