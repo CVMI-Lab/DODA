@@ -73,7 +73,7 @@ def generate_pseudo_labels(
         np.savetxt(done_flag_path, np.array([1]))
     common_utils.synchronize()
     if cfg.DATA_CONFIG_TAR.DATA_PROCESSOR.get('no_downsample_infer', False):
-        train_loader.dataset.set_downsampling_scale(1)
+        train_loader.dataset.set_downsampling_scale(ds)
     return class_ratio.cpu().numpy()
 
 
