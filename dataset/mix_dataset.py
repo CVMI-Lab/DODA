@@ -71,7 +71,7 @@ class CuboidMixingDataset(MixDatasetTemp):
             {'xyz_middle1': xyz_middle1, 'label1': label1,
              'xyz_middle2': xyz_middle2, 'label2': label2},
         )
-        xyz_middle, label= data_dict['xyz_middle'], data_dict['label']
+        xyz_middle, label = data_dict['xyz_middle'], data_dict['label']
         pc1_mask, pc2_mask = data_dict['others']['pc1_mask'], data_dict['others']['pc2_mask']
         tar_tail_splits = data_dict['others']['tar_tail_splits']
         tar_splits_class_ratio = data_dict['others']['tar_splits_class_ratio']

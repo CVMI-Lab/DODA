@@ -51,7 +51,7 @@ DATA_AUG:
       enabled: True
       p: 0.5
     cuboid_queue:
-      enabled: False
+      enabled: True
       size: 256
       num_cuboid: 2.0  # cuboid for each scene
       num_class: 2  # number of tail class for sampling

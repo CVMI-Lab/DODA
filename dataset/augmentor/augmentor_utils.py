@@ -325,6 +325,7 @@ def tacm(param, split_sampler, dataset_name, class_names, pc1, pc2):
             _split = tail_cuboids[ptrs[domain]]
             _split[..., 0:3] += split_coord_xyzs[0][s] - _split[..., 0:3].max(0)  # use the target domain split_coord
             _split[..., 0:3] = transform_xyz(_split[..., 0:3], param)
+            ptrs[domain] += 1
             new_split_coords.append(split_coord_xyzs[0][s])
             new_split_range.append(split_ranges[0][s])
         else:

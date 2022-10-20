@@ -131,14 +131,9 @@ def get_val_dataset(args, dataset_cfg, dist_train, logger):
 
 def get_src_train_dataset(cfg, args, dist_train, logger, pin_memory=False):
     # source train data
-    if cfg.DATA_CONFIG.DATA_AUG.tacm.enabled:  # mix with source
-        src_train_data, src_train_loader, src_train_sampler = build_mix_dataloader(
-            cfg.DATA_CONFIG, cfg.DATA_CONFIG, args.batch_size, dist_train, training=True, workers=args.workers,
-            logger=logger, total_epochs=args.epochs, drop_last=True, pin_memory=pin_memory)
-    else:
-        src_train_data, src_train_loader, src_train_sampler = build_dataloader(
-            cfg.DATA_CONFIG, args.batch_size, dist_train, training=True, workers=args.workers,
-            logger=logger, total_epochs=args.epochs, drop_last=True, pin_memory=pin_memory)
+    src_train_data, src_train_loader, src_train_sampler = build_dataloader(
+        cfg.DATA_CONFIG, args.batch_size, dist_train, training=True, workers=args.workers,
+        logger=logger, total_epochs=args.epochs, drop_last=True, pin_memory=pin_memory)
     return src_train_data, src_train_loader, src_train_sampler
 
 
